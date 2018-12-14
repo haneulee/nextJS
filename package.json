@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "next start -p 8000"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "isomorphic-unfetch": "^2.1.1",
     "next": "^6.1.2",
     "react": "^16.5.0",
-    "react-dom": "^16.5.0"
+    "react-dom": "^16.5.0",
+    "react-markdown": "^4.0.4"
   }
 }
