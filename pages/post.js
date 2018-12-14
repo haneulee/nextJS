@@ -1,12 +1,22 @@
 import Layout from "../components/MyLayout.js";
 import fetch from "isomorphic-unfetch";
-import { withRouter } from "next/router";
 import Markdown from "react-markdown";
+import marked from "marked";
+// import Highlight from "react-highlight";
+import dynamic from "next/dynamic";
+
+const Highlight = dynamic(import("react-highlight"));
+
+marked.setOptions({
+  gfm: true,
+  tables: true,
+  breaks: true
+});
 
 const Post = props => (
   <Layout>
     <h1>{props.show.name}</h1>
-    <p>{props.show.summary.replace(/<[/]?p>/g, "")}</p>
+    <Highlight innerHTML>{marked(props.show.summary.replace(/<[/]?p>/g, ""))}</Highlight>
     <img src={props.show.image.medium} />
     <div className="markdown">
       <Markdown
